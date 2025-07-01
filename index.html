@@ -40,26 +40,23 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     user-select: none;
-    opacity: 0;
+    opacity: 1; /* Başlangıç opaklığı 1 yapıldı */
     animation-fill-mode: forwards;
   }
 
   @keyframes floatUp {
     0% {
       transform: translateY(100vh) scale(1);
-      opacity: 0;
+      opacity: 1; /* Başlangıç görünür */
     }
-    10% {
-      opacity: 1;
+    90% {
+      opacity: 1; /* Yukarı çıkarken görünür */
     }
     100% {
       transform: translateY(-10vh) scale(1.2);
-      opacity: 0;
+      opacity: 0; /* Yukarıda kayboluyor */
     }
   }
-
-  /* Diğer CSS aynı... */
-  /* (Header, main, intro, countdown, gallery, caption, footer gibi kısımlar değişmedi) */
 
   header {
     background-color: #f48fb1;

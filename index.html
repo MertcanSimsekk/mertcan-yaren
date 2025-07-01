@@ -8,6 +8,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto:wght@400;700&display=swap');
   
   body {
+    position: relative;
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
     color: #4a1c2b;
@@ -16,6 +17,28 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    z-index: 1;
+  }
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Pink_heart.svg/120px-Pink_heart.svg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    opacity: 0.15;
+    z-index: 0;
+  }
+  body::before {
+    left: 10px;
+  }
+  body::after {
+    right: 10px;
   }
   header {
     background-color: #f48fb1;

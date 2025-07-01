@@ -3,112 +3,123 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mertcan & Yaren - Bizim Hikaye</title>
+<title>Mertcan & Yaren - Bizim Hikayemiz</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap');
-
   body {
-    margin: 0;
-    padding: 20px;
-    background: #fff0f5;
-    font-family: 'Open Sans', sans-serif;
-    color: #4a2c40;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff5f8;
+    color: #333;
+    margin: 0; padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
   }
-
-  h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3.5rem;
-    margin-bottom: 0;
-    color: #b35d7a;
-  }
-
-  h2 {
-    margin-top: 5px;
-    font-weight: normal;
-    font-size: 1.4rem;
-    color: #855270;
-  }
-
-  #counter {
-    margin: 30px 0 40px 0;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #a85a7e;
-  }
-
-  #messages {
-    max-width: 600px;
-    text-align: center;
-    font-size: 1.3rem;
-    line-height: 1.6;
-    margin-bottom: 50px;
-  }
-
-  #gallery {
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-    gap: 15px;
-  }
-
-  #gallery img {
+  header {
+    background-color: #f9c5d1;
     width: 100%;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #641e3e;
+    box-shadow: 0 2px 6px rgba(100,30,62,0.3);
+  }
+  main {
+    flex-grow: 1;
+    max-width: 600px;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  .countdown {
+    font-size: 3rem;
+    color: #e91e63;
+    margin: 1rem 0 2rem 0;
+    font-weight: 700;
+  }
+  .intro {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #6a3749;
+  }
+  .section-title {
+    font-size: 1.5rem;
+    color: #a63056;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  .plan {
+    font-style: italic;
+    background-color: #fce4ec;
+    padding: 1rem;
+    border-radius: 8px;
+    color: #75263a;
+    margin-bottom: 2rem;
+  }
+  iframe {
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(168,90,126,0.3);
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    border: none;
+    width: 100%;
+    max-width: 600px;
+    height: 80px;
   }
-
-  #gallery img:hover {
-    transform: scale(1.05);
-  }
-
   footer {
-    margin-top: auto;
     font-size: 0.9rem;
-    color: #a2769a;
+    color: #a36b7b;
+    padding: 1rem 0;
   }
 </style>
 </head>
 <body>
 
-  <h1>Mertcan & Yaren</h1>
-  <h2>Kaç Gündür Birlikteyiz?</h2>
-  <div id="counter">...</div>
+<header>
+  Mertcan & Yaren - Bizim Hikayemiz
+</header>
 
-  <div id="messages">
-    <p>Her gün biraz daha büyüyen sevgimiz, mesafeler ne kadar uzak olursa olsun kalplerimizi birleştiriyor.</p>
+<main>
+  <div class="intro">
+    “Mesafeler sadece bedenleri ayırır, kalplerimizi değil. Her gün seninle olmak için sabırsızlanıyorum, sevgilim.”
   </div>
 
-  <div id="gallery">
-    <!-- Fotoğrafları buraya Imgur linkleriyle ekle -->
-    <img src="https://i.imgur.com/örnek1.jpg" alt="Bizim fotoğraf 1" />
-    <img src="https://i.imgur.com/örnek2.jpg" alt="Bizim fotoğraf 2" />
-    <!-- İstersen buraya yeni imgur linklerini ekleyebilirsin -->
+  <div>
+    <div class="section-title">Birlikte Geçen Günlerimiz</div>
+    <div class="countdown" id="daysCount">...</div>
   </div>
 
-  <footer>
-    <p>Bu site sadece biz ikimiz için hazırlandı 💖</p>
-  </footer>
+  <div>
+    <div class="section-title">Gelecek Planlarımız</div>
+    <div class="plan">
+      “Birlikte keşfedeceğimiz yeni şehirler, birlikte güleceğimiz anlar ve her sabah seninle uyanacağımız günler hayalimde.  
+      Mesafeler geçici, aşkımız sonsuz.”
+    </div>
+  </div>
+
+  <div>
+    <div class="section-title">Senin İçin Seçtiğim Şarkılar</div>
+    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1EJLCtzYcyqvCB?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Mertcan & Yaren
+</footer>
 
 <script>
-  // İlk buluşma tarihini buraya gir (YYYY, M-1, D)
-  // Örnek: 2023, 0, 15 -> 15 Ocak 2023 (Aylar 0'dan başlar)
-  const startDate = new Date(2025, 7, 14);
-
-  function updateCounter() {
-    const now = new Date();
-    const diffTime = now - startDate;
+  // Sayaç fonksiyonu
+  function calculateDays() {
+    const startDate = new Date("2025-06-14T00:00:00");
+    const today = new Date();
+    const diffTime = today - startDate;
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    document.getElementById('counter').textContent = diffDays + " gün";
+    return diffDays >= 0 ? diffDays : 0;
   }
-
-  updateCounter();
-  setInterval(updateCounter, 60 * 1000); // Her dakika günceller
+  function updateCountdown() {
+    const days = calculateDays();
+    document.getElementById('daysCount').textContent = days + " gün";
+  }
+  updateCountdown();
+  // Güncel tutmak için her gün yenile (isteğe bağlı)
+  setInterval(updateCountdown, 1000 * 60 * 60); 
 </script>
 
 </body>

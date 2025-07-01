@@ -40,21 +40,21 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     user-select: none;
-    opacity: 1; /* Başlangıç opaklığı 1 yapıldı */
+    opacity: 1;
     animation-fill-mode: forwards;
   }
 
   @keyframes floatUp {
     0% {
       transform: translateY(100vh) scale(1);
-      opacity: 1; /* Başlangıç görünür */
+      opacity: 1;
     }
     90% {
-      opacity: 1; /* Yukarı çıkarken görünür */
+      opacity: 1;
     }
     100% {
       transform: translateY(-10vh) scale(1.2);
-      opacity: 0; /* Yukarıda kayboluyor */
+      opacity: 0;
     }
   }
 
@@ -230,15 +230,15 @@
     </div>
   </div>
 
-  <!-- YouTube Player -->
+  <!-- Spotify Player -->
   <div style="margin: 1rem 0; text-align:center;">
     <iframe 
+      src="https://open.spotify.com/embed/track/294JL3Xexu3sVRH9tpn60G" 
       width="300" 
       height="80" 
-      src="https://www.youtube.com/embed/olz59T2jGvc?autoplay=1&loop=1&playlist=olz59T2jGvc&mute=1" 
       frameborder="0" 
-      allow="autoplay; encrypted-media" 
-      allowfullscreen
+      allowtransparency="true" 
+      allow="encrypted-media"
       style="border-radius:12px;"
     ></iframe>
   </div>
@@ -253,7 +253,7 @@
 
 <script>
   const heartsBg = document.getElementById('hearts-bg');
-  const heartCount = 200; // artırıldı
+  const heartCount = 200;
 
   function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -268,11 +268,10 @@
     heart.style.fontSize = randomInt(15, 25) + 'px';
     heart.style.animationDuration = (randomInt(15, 25)) + 's';
     heart.style.animationDelay = (randomInt(0, 20)) + 's';
-    heart.style.opacity = '1'; // başta opak yapıldı
+    heart.style.opacity = '1';
     heartsBg.appendChild(heart);
   }
 
-  // Sayaç fonksiyonları
   function calculateDays() {
     const startDate = new Date("2025-06-14T00:00:00");
     const today = new Date();

@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mertcan & Yaren - Bizim Hikayemiz</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto:wght@400;700&display=swap');
+  
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fff5f8;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    color: #4a1c2b;
     margin: 0; padding: 0;
     display: flex;
     flex-direction: column;
@@ -16,57 +18,96 @@
     min-height: 100vh;
   }
   header {
-    background-color: #f9c5d1;
+    background-color: #f48fb1;
     width: 100%;
     padding: 1.5rem 0;
     text-align: center;
-    font-size: 1.8rem;
+    font-family: 'Parisienne', cursive;
+    font-size: 2.8rem;
     font-weight: 700;
-    color: #641e3e;
-    box-shadow: 0 2px 6px rgba(100,30,62,0.3);
+    color: #5d2246;
+    box-shadow: 0 3px 8px rgba(92, 34, 70, 0.4);
   }
   main {
     flex-grow: 1;
-    max-width: 600px;
-    padding: 2rem 1rem;
+    max-width: 640px;
+    padding: 2rem 1rem 3rem 1rem;
     text-align: center;
   }
-  .countdown {
-    font-size: 3rem;
-    color: #e91e63;
-    margin: 1rem 0 2rem 0;
-    font-weight: 700;
-  }
   .intro {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 2rem;
-    color: #6a3749;
+    color: #6e2e4c;
+    font-style: italic;
+  }
+  .countdown {
+    font-size: 3.2rem;
+    color: #ad1457;
+    margin: 1rem 0 2.5rem 0;
+    font-weight: 700;
+    text-shadow: 0 2px 4px #7b2a4e;
   }
   .section-title {
-    font-size: 1.5rem;
-    color: #a63056;
+    font-size: 1.7rem;
+    color: #a81e54;
     margin-bottom: 1rem;
     font-weight: 600;
+    border-bottom: 2px solid #a81e54;
+    display: inline-block;
+    padding-bottom: 4px;
+    margin-top: 2.5rem;
   }
   .plan {
     font-style: italic;
-    background-color: #fce4ec;
-    padding: 1rem;
-    border-radius: 8px;
-    color: #75263a;
-    margin-bottom: 2rem;
+    background-color: #f8bbd0;
+    padding: 1.3rem 1rem;
+    border-radius: 10px;
+    color: #6d2a46;
+    margin-bottom: 3rem;
+    box-shadow: 0 3px 6px rgba(163, 30, 84, 0.3);
   }
   iframe {
     border-radius: 12px;
     border: none;
     width: 100%;
-    max-width: 600px;
+    max-width: 640px;
     height: 80px;
+    box-shadow: 0 3px 8px rgba(168, 30, 84, 0.4);
+  }
+  /* Fotoğraf albümü stili */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 1.5rem;
+  }
+  .gallery-item {
+    flex: 1 1 280px;
+    max-width: 280px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(173, 20, 81, 0.3);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .gallery-item:hover {
+    transform: scale(1.05);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .caption {
+    padding: 0.5rem 1rem 1rem 1rem;
+    color: #5a1c3a;
+    font-style: italic;
   }
   footer {
     font-size: 0.9rem;
     color: #a36b7b;
-    padding: 1rem 0;
+    padding: 1rem 0 2rem 0;
   }
 </style>
 </head>
@@ -95,8 +136,34 @@
   </div>
 
   <div>
+    <div class="section-title">Fotoğraf Albümü</div>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/d2FdrQd.jpeg" alt="Bizim Anımız" />
+        <div class="caption">En güzel anımızdan bir kare</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/JEwfbuo.jpeg" alt="Beraber Geçirdiğimiz Zaman" />
+        <div class="caption">Beraber geçirdiğimiz güzel anlar</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/f3ue9LG.jpeg" alt="Unutulmaz Anımız" />
+        <div class="caption">Unutulmaz anımız</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/apf6Lwi.jpeg" alt="Mutlu Anlarımız" />
+        <div class="caption">Mutlu anlarımızdan biri</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/FaerLQI.jpeg" alt="Göz Göze" />
+        <div class="caption">Göz göze baktığımız an</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
     <div class="section-title">Senin İçin Seçtiğim Şarkılar</div>
-    <iframe src="https://open.spotify.com/playlist/37i9dQZF1EJLCtzYcyqvCB?si=bbc27b9e90fe414b" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1EJLCtzYcyqvCB?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
   </div>
 </main>
 
@@ -105,7 +172,6 @@
 </footer>
 
 <script>
-  // Sayaç fonksiyonu
   function calculateDays() {
     const startDate = new Date("2025-06-14T00:00:00");
     const today = new Date();
@@ -118,8 +184,7 @@
     document.getElementById('daysCount').textContent = days + " gün";
   }
   updateCountdown();
-  // Güncel tutmak için her gün yenile (isteğe bağlı)
-  setInterval(updateCountdown, 1000 * 60 * 60); 
+  setInterval(updateCountdown, 1000 * 60 * 60);
 </script>
 
 </body>

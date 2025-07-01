@@ -20,24 +20,40 @@
     overflow-x: hidden;
     z-index: 0;
   }
-  /* Kalpler arka plan - bol, orta boy, pastel renk */
-  body::before {
-    content: "❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤";
+
+  /* Arka plan kalpler container */
+  #hearts-bg {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100vw;
     height: 100vh;
-    font-size: 28px;
-    color: rgba(173, 20, 81, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: space-evenly;
     pointer-events: none;
     user-select: none;
     z-index: -1;
-    line-height: 1;
+    overflow: hidden;
+  }
+
+  /* Kalp stili */
+  .heart {
+    position: absolute;
+    font-size: 18px;
+    color: rgba(173, 20, 81, 0.15);
+    animation: floatUp 20s linear infinite;
+    user-select: none;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) scale(1.2);
+      opacity: 0;
+    }
   }
 
   header {
@@ -99,6 +115,8 @@
     justify-content: center;
     gap: 16px;
     margin-top: 1.5rem;
+    position: relative;
+    z-index: 2; /* yazıların kalplerin üstünde olması için */
   }
   .gallery-item {
     flex: 1 1 280px;
@@ -108,9 +126,13 @@
     box-shadow: 0 4px 10px rgba(173, 20, 81, 0.3);
     transition: transform 0.3s ease;
     cursor: pointer;
+    background: white; /* üstüne yazı geçmesini azaltır */
+    position: relative;
+    z-index: 3;
   }
   .gallery-item:hover {
     transform: scale(1.05);
+    z-index: 4; /* hoverda öne çıkar */
   }
   .gallery-item img {
     width: 100%;
@@ -121,6 +143,9 @@
     padding: 0.5rem 1rem 1rem 1rem;
     color: #5a1c3a;
     font-style: italic;
+    background: rgba(255 255 255 / 0.85);
+    position: relative;
+    z-index: 5; /* yazılar en üstte */
   }
   footer {
     font-size: 0.9rem;
@@ -209,7 +234,30 @@
   &copy; 2025 Mertcan & Yaren
 </footer>
 
+<div id="hearts-bg"></div>
+
 <script>
+  // Kalpleri rastgele konumlandır ve animasyon uygula
+  const heartsBg = document.getElementById('hearts-bg');
+  const heartCount = 60; // Kalp sayısı, çoğaltabilirsin
+
+  function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  for(let i = 0; i < heartCount; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '❤';
+    heart.style.left = randomInt(0, 100) + 'vw';
+    heart.style.top = randomInt(0, 100) + 'vh';
+    heart.style.fontSize = randomInt(15, 25) + 'px';
+    heart.style.animationDuration = (randomInt(15, 25)) + 's';
+    heart.style.animationDelay = (randomInt(0, 20)) + 's';
+    heartsBg.appendChild(heart);
+  }
+
+  // Sayaç fonksiyonları aynı
   function calculateDays() {
     const startDate = new Date("2025-06-14T00:00:00");
     const today = new Date();

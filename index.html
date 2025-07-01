@@ -35,7 +35,7 @@
   .heart {
     position: absolute;
     font-size: 18px;
-    color: rgba(173, 20, 81, 0.15);
+    color: rgba(173, 20, 81, 0.4); /* Daha net renk */
     animation-name: floatUp;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -253,7 +253,7 @@
 
 <script>
   const heartsBg = document.getElementById('hearts-bg');
-  const heartCount = 200;
+  const heartCount = 60;
 
   function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -267,7 +267,7 @@
     heart.style.top = randomInt(0, 100) + 'vh';
     heart.style.fontSize = randomInt(15, 25) + 'px';
     heart.style.animationDuration = (randomInt(15, 25)) + 's';
-    heart.style.animationDelay = (randomInt(0, 20)) + 's';
+    heart.style.animationDelay = '0s'; // animasyon hemen başlasın
     heart.style.opacity = '1';
     heartsBg.appendChild(heart);
   }

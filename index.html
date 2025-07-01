@@ -82,16 +82,17 @@
   }
   .intro {
     font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
     color: #6e2e4c;
     font-style: italic;
   }
   #love-note {
     font-size: 1.2rem;
-    color: #a81e54;
+    color: #8B0031; /* Daha net koyu bordo */
     font-style: italic;
-    margin-bottom: 2rem;
+    margin: 1rem auto 2rem auto;
     min-height: 2.2rem;
+    max-width: 600px;
     transition: opacity 0.5s ease;
   }
   .countdown {
@@ -177,7 +178,6 @@
   <div class="intro">
     “Mesafeler sadece bedenleri ayırır, kalplerimizi değil. Her gün seninle olmak için sabırsızlanıyorum, sevgilim.”
   </div>
-  <div id="love-note"></div>
 
   <div style="margin: 1rem 0; text-align:center;">
     <iframe 
@@ -190,6 +190,9 @@
       style="border-radius:12px;"
     ></iframe>
   </div>
+  
+  <!-- Sevgi Notları Spotify embed'in hemen altında -->
+  <div id="love-note"></div>
 
   <div>
     <div class="section-title">Birlikte Geçen Günlerimiz</div>
@@ -309,21 +312,19 @@
     "Gülüşün karanlık günlerimi aydınlatıyor."
   ];
 
-  let loveNoteIndex = 0;
   const loveNoteElem = document.getElementById('love-note');
 
   function showNextLoveNote() {
-    // Opaklığı azaltıp sonra değiştirip tekrar artıracağız (fade effect)
     loveNoteElem.style.opacity = 0;
     setTimeout(() => {
-      loveNoteElem.textContent = loveNotes[loveNoteIndex];
+      const randomIndex = Math.floor(Math.random() * loveNotes.length);
+      loveNoteElem.textContent = loveNotes[randomIndex];
       loveNoteElem.style.opacity = 1;
-      loveNoteIndex = (loveNoteIndex + 1) % loveNotes.length;
     }, 500);
   }
 
   showNextLoveNote();
-  setInterval(showNextLoveNote, 5000); // Her 5 saniyede değişir
+  setInterval(showNextLoveNote, 5000);
 
 </script>
 

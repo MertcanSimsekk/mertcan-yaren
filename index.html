@@ -82,9 +82,17 @@
   }
   .intro {
     font-size: 1.3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     color: #6e2e4c;
     font-style: italic;
+  }
+  #love-note {
+    font-size: 1.2rem;
+    color: #a81e54;
+    font-style: italic;
+    margin-bottom: 2rem;
+    min-height: 2.2rem;
+    transition: opacity 0.5s ease;
   }
   .countdown {
     font-size: 3.2rem;
@@ -169,6 +177,7 @@
   <div class="intro">
     “Mesafeler sadece bedenleri ayırır, kalplerimizi değil. Her gün seninle olmak için sabırsızlanıyorum, sevgilim.”
   </div>
+  <div id="love-note"></div>
 
   <div style="margin: 1rem 0; text-align:center;">
     <iframe 
@@ -252,6 +261,7 @@
 <div id="hearts-bg"></div>
 
 <script>
+  // Kalp animasyonları
   const heartsBg = document.getElementById('hearts-bg');
   const heartCount = 200;
 
@@ -272,6 +282,7 @@
     heartsBg.appendChild(heart);
   }
 
+  // Birlikte geçen günler sayacı
   function calculateDays() {
     const startDate = new Date("2025-06-14T00:00:00");
     const today = new Date();
@@ -285,6 +296,35 @@
   }
   updateCountdown();
   setInterval(updateCountdown, 1000 * 60 * 60);
+
+  // Sevgi notları
+  const loveNotes = [
+    "Seninle her an, her saniye daha da güzel.",
+    "Kalbim seninle dolup taşıyor, aşkım.",
+    "Mesafeler bizi ayıramaz, sevgimiz her zaman yakın.",
+    "Sen benim en değerli hazinemsin.",
+    "Birlikte yazdığımız hikaye sonsuza dek sürecek.",
+    "Her gün seni daha çok seviyorum.",
+    "Sen benim hayatımdaki en güzel şarkısın.",
+    "Gülüşün karanlık günlerimi aydınlatıyor."
+  ];
+
+  let loveNoteIndex = 0;
+  const loveNoteElem = document.getElementById('love-note');
+
+  function showNextLoveNote() {
+    // Opaklığı azaltıp sonra değiştirip tekrar artıracağız (fade effect)
+    loveNoteElem.style.opacity = 0;
+    setTimeout(() => {
+      loveNoteElem.textContent = loveNotes[loveNoteIndex];
+      loveNoteElem.style.opacity = 1;
+      loveNoteIndex = (loveNoteIndex + 1) % loveNotes.length;
+    }, 500);
+  }
+
+  showNextLoveNote();
+  setInterval(showNextLoveNote, 10000); // Her 10 saniyede değişir
+
 </script>
 
 </body>

@@ -16,7 +16,30 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    z-index: 0;
   }
+  /* Kalpler arka plan - bol, orta boy, pastel renk */
+  body::before {
+    content: "❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 28px;
+    color: rgba(173, 20, 81, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
+    line-height: 1;
+  }
+
   header {
     background-color: #f48fb1;
     width: 100%;
@@ -27,12 +50,15 @@
     font-weight: 700;
     color: #5d2246;
     box-shadow: 0 3px 8px rgba(92, 34, 70, 0.4);
+    z-index: 1;
   }
   main {
     flex-grow: 1;
     max-width: 640px;
     padding: 2rem 1rem 3rem 1rem;
     text-align: center;
+    z-index: 1;
+    position: relative;
   }
   .intro {
     font-size: 1.3rem;
@@ -130,6 +156,8 @@
     font-size: 0.9rem;
     color: #a36b7b;
     padding: 1rem 0 2rem 0;
+    z-index: 1;
+    position: relative;
   }
 </style>
 </head>

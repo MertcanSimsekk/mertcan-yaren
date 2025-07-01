@@ -104,6 +104,28 @@
     color: #5a1c3a;
     font-style: italic;
   }
+  /* Sevgiliye Notlar stili */
+  #loveNotes {
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    resize: none;
+    border: 2px solid #ad1457;
+    box-sizing: border-box;
+  }
+  #saveNoteBtn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #ad1457;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  #saveNoteBtn:hover {
+    background-color: #910042;
+  }
   footer {
     font-size: 0.9rem;
     color: #a36b7b;
@@ -161,6 +183,13 @@
     </div>
   </div>
 
+  <!-- Sevgiliye Notlar Bölümü -->
+  <div>
+    <div class="section-title">Sevgiliye Notlar</div>
+    <textarea id="loveNotes" placeholder="Buraya istediğin zaman küçük notlar yazabilirsin..." rows="5"></textarea>
+    <button id="saveNoteBtn" onclick="saveNote()">Kaydet</button>
+  </div>
+
   <div>
     <div class="section-title">Senin İçin Seçtiğim Şarkılar</div>
     <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1EJLCtzYcyqvCB?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
@@ -185,6 +214,18 @@
   }
   updateCountdown();
   setInterval(updateCountdown, 1000 * 60 * 60);
+
+  // Sevgiliye Notlar fonksiyonları
+  function saveNote() {
+    const note = document.getElementById('loveNotes').value;
+    localStorage.setItem('loveNote', note);
+    alert('Not kaydedildi!');
+  }
+
+  window.onload = () => {
+    const savedNote = localStorage.getItem('loveNote');
+    if (savedNote) document.getElementById('loveNotes').value = savedNote;
+  };
 </script>
 
 </body>

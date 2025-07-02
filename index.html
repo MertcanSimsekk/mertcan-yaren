@@ -111,7 +111,7 @@
       margin-bottom: 8px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(163, 30, 84, 0.3);
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
       cursor: default;
     }
 
@@ -183,6 +183,8 @@
       animation-timing-function: linear;
       animation-iteration-count: infinite;
       animation-fill-mode: forwards;
+      opacity: 1;
+      user-select: none;
     }
 
     @keyframes floatUp {
@@ -220,6 +222,10 @@
       .plan {
         font-size: 0.95rem;
       }
+
+      .games-list {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -250,7 +256,7 @@
     </div>
   </div>
 
-  <!-- Yeni Eklenen Bölüm -->
+  <!-- Yeni Oyunlar Bölümü -->
   <div>
     <div class="section-title">Birlikte Oynadığımız Oyunlar</div>
     <div class="games-list">
@@ -345,7 +351,7 @@
     heart.style.top = randomInt(0, 100) + 'vh';
     heart.style.fontSize = randomInt(15, 25) + 'px';
     heart.style.animationDuration = randomInt(10, 20) + 's';
-    heart.style.animationDelay = randomInt(0, 10) + 's';
+    heart.style.animationDelay = (Math.random() * 20) + 's'; // animasyonun başlaması için random delay ekledik
     heartsBg.appendChild(heart);
   }
 

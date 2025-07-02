@@ -94,6 +94,32 @@
       box-shadow: 0 3px 6px rgba(163, 30, 84, 0.3);
     }
 
+    .games-list {
+      margin-top: 1rem;
+      text-align: left;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #7b2a4e;
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    .game-item {
+      background-color: #f8bbd0;
+      padding: 10px 15px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(163, 30, 84, 0.3);
+      transition: background-color 0.3s ease;
+      cursor: default;
+    }
+
+    .game-item:hover {
+      background-color: #ad1457;
+      color: white;
+    }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -224,8 +250,30 @@
     </div>
   </div>
 
+  <!-- Yeni Eklenen Bölüm -->
   <div>
-   <div class="section-title">Fotoğraf Albümü</div>
+    <div class="section-title">Birlikte Oynadığımız Oyunlar</div>
+    <div class="games-list">
+      <div class="game-item">
+        <strong>Minecraft</strong> — İlk birlikte keşfettiğimiz oyun, çok eğlenceliydi!
+      </div>
+      <div class="game-item">
+        <strong>Brawl Stars</strong> — Heyecan dolu maçlarımız burada başladı.
+      </div>
+      <div class="game-item">
+        <strong>Okey 101</strong> — Strateji ve şansın buluştuğu favori oyunumuz.
+      </div>
+      <div class="game-item">
+        <strong>Hayday</strong> — Çiftlik hayatında birlikte vakit geçirdik.
+      </div>
+      <div class="game-item">
+        <strong>Gartic Phone</strong> — Kahkahalarla dolu çizim ve tahmin oyunumuz.
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-title">Fotoğraf Albümü</div>
     <div class="gallery">
       <div class="gallery-item">
         <img src="https://i.imgur.com/d2FdrQd.jpeg" alt="Bizim Anımız" />

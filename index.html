@@ -326,6 +326,33 @@
   &copy; 2025 Mertcan & Yaren
 </footer>
 
+<div id="hearts-bg"></div>
+
+<script>
+  const heartsBg = document.getElementById('hearts-bg');
+  const heartCount = 60;
+
+  function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  for (let i = 0; i < heartCount; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '❤';
+    heart.style.left = randomInt(0, 100) + 'vw';
+    heart.style.top = randomInt(0, 100) + 'vh';
+    heart.style.fontSize = randomInt(15, 25) + 'px';
+    heart.style.animationDuration = randomInt(10, 20) + 's';
+    heart.style.animationDelay = randomInt(0, 5) + 's'; // 0-5 saniye arası animasyon gecikmesi
+    heartsBg.appendChild(heart);
+  }
+
+  // Animasyonun hemen başlaması için reflow tetikleme
+  heartsBg.querySelectorAll('.heart').forEach(heart => {
+    void heart.offsetWidth;
+  });
+
   function calculateDays() {
     const startDate = new Date("2025-06-14T00:00:00");
     const today = new Date();

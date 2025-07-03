@@ -332,6 +332,19 @@
   const heartsBg = document.getElementById('hearts-bg');
   const heartCount = 60;
 
+  const heartColors = [
+    '#e91e63', // pembe
+    '#f06292', // açık pembe
+    '#f50057', // fuşya
+    '#c2185b', // koyu pembe
+    '#ec407a', // yumuşak pembe
+    '#ff80ab', // pastel pembe
+    '#d81b60', // pembe-kırmızı
+    '#ff4081', // sıcak pembe
+    '#f8bbd0', // çok açık pembe
+    '#ad1457'  // romantik koyu
+  ];
+
   function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
@@ -344,10 +357,14 @@
     heart.style.top = randomInt(0, 100) + 'vh';
     heart.style.fontSize = randomInt(15, 25) + 'px';
     heart.style.animationDuration = randomInt(10, 20) + 's';
+
+    // 🎨 Her kalp için rastgele renk seç
+    heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+
     heartsBg.appendChild(heart);
   }
 
-  // Animasyonun hemen başlaması için reflow tetikleme
+  // Reflow tetikleme
   heartsBg.querySelectorAll('.heart').forEach(heart => {
     void heart.offsetWidth;
   });

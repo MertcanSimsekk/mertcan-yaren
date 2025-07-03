@@ -71,6 +71,54 @@
       margin-top: 10px;
       font-style: italic;
       line-height: 1.5;
+      position: relative;
+      padding-bottom: 40px; /* Aşağıda açıklama kutusu için boşluk */
+    }
+
+    .birthday {
+      margin-bottom: 8px;
+    }
+
+    /* Ortada yatay çizgi ve fark metni için kutu */
+    #birthday-diff {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 30px;
+      font-style: italic;
+      font-weight: 600;
+      color: #ad1457;
+      background: #f8bbd0;
+      border-radius: 15px;
+      box-shadow: 0 3px 6px rgba(163, 30, 84, 0.3);
+      line-height: 30px;
+      z-index: 10;
+    }
+
+    #birthday-diff::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -130px;
+      width: 120px;
+      height: 2px;
+      background: #ad1457;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+
+    #birthday-diff::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -130px;
+      width: 120px;
+      height: 2px;
+      background: #ad1457;
+      transform: translateY(-50%);
+      z-index: -1;
     }
 
     .section-title {
@@ -241,6 +289,7 @@
     <div class="birthdays">
       <div class="birthday" id="yarenBirthday">Yaren’in Doğum Günü: 16 Aralık 2009</div>
       <div class="birthday" id="mertcanBirthday">Mertcan’ın Doğum Günü: 21 Nisan 2009</div>
+      <div id="birthday-diff"></div>
     </div>
   </div>
 
@@ -403,28 +452,26 @@
     return { months, days };
   }
 
-  function updateBirthdaysWithDiff() {
+  function updateBirthdayDiffBox() {
     const yarenBD = new Date('2009-12-16');
     const mertcanBD = new Date('2009-04-21');
 
     const diff = calculateMonthDayDiff(yarenBD, mertcanBD);
 
-    const yarenElem = document.getElementById('yarenBirthday');
-    const mertcanElem = document.getElementById('mertcanBirthday');
+    const diffText = `${diff.months} ay ${diff.days} günle koymuşum`;
 
-    const diffText = `(Aramızda ${diff.months} ay ${diff.days} gün fark var)`;
-
-    if (yarenElem && mertcanElem) {
-      yarenElem.textContent += ' ' + diffText;
-      mertcanElem.textContent += ' ' + diffText;
+    const diffBox = document.getElementById('birthday-diff');
+    if (diffBox) {
+      diffBox.textContent = diffText;
     }
   }
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  updateBirthdaysWithDiff();
+  updateBirthdayDiffBox();
 </script>
 
 </body>
 </html>
+

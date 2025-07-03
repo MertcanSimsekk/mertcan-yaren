@@ -333,16 +333,8 @@
   const heartCount = 60;
 
   const heartColors = [
-    '#e91e63', // pembe
-    '#f06292', // açık pembe
-    '#f50057', // fuşya
-    '#c2185b', // koyu pembe
-    '#ec407a', // yumuşak pembe
-    '#ff80ab', // pastel pembe
-    '#d81b60', // pembe-kırmızı
-    '#ff4081', // sıcak pembe
-    '#f8bbd0', // çok açık pembe
-    '#ad1457'  // romantik koyu
+    '#e91e63', '#f06292', '#f50057', '#c2185b', '#ec407a',
+    '#ff80ab', '#d81b60', '#ff4081', '#f8bbd0', '#ad1457'
   ];
 
   function randomInt(min, max) {
@@ -357,33 +349,36 @@
     heart.style.top = randomInt(0, 100) + 'vh';
     heart.style.fontSize = randomInt(15, 25) + 'px';
     heart.style.animationDuration = randomInt(10, 20) + 's';
-
-    // 🎨 Her kalp için rastgele renk seç
     heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
-
     heartsBg.appendChild(heart);
   }
 
-  // Reflow tetikleme
+  // Kalp animasyonu başlatmak için reflow tetikleme
   heartsBg.querySelectorAll('.heart').forEach(heart => {
     void heart.offsetWidth;
   });
 
-  function calculateDays() {
-    const startDate = new Date("2025-06-14T00:00:00");
-    const today = new Date();
-    const diffTime = today - startDate;
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays >= 0 ? diffDays : 0;
-  }
-
+  // GERÇEK ZAMANLI GEÇEN SÜRE HESAPLAMA
   function updateCountdown() {
-    const days = calculateDays();
-    document.getElementById('daysCount').textContent = days + " gün";
+    const startDate = new Date("2025-06-14T00:00:00");
+    const now = new Date();
+    let diff = now - startDate;
+
+    if (diff < 0) diff = 0;
+
+    const seconds = Math.floor((diff / 1000) % 60);
+    const minutes = Math.floor((diff / 1000 / 60) % 60);
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const formatted = `${days} gün ${hours.toString().padStart(2, '0')} saat ${minutes.toString().padStart(2, '0')} dakika ${seconds.toString().padStart(2, '0')} saniye`;
+
+    document.getElementById('daysCount').textContent = formatted;
   }
 
+  // Her saniyede bir güncelle
   updateCountdown();
-  setInterval(updateCountdown, 1000 * 60 * 60);
+  setInterval(updateCountdown, 1000);
 </script>
 
 </body>

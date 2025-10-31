@@ -1,116 +1,424 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#000000" />
-  <title>KAPANDI</title>
+  <title>Mertcan & Yaren - Bizim Hikayemiz</title>
   <style>
-    /* === Basit, tek dosyalık “KAPANDI” sayfası ===
-       İpuçları:
-       - Renkleri :root altında değiştir.
-       - Animasyonu kapatmak için .headline içindeki animation satırını sil.
-    */
+    @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto:wght@400;700&display=swap');
+
     :root {
-      --bg: #0b0b0b;
-      --fg: #ffffff;
-      --accent: #ff3b3b; /* İsteğe bağlı vurgu rengi */
+      --primary-color: #ad1457;
+      --bg-gradient: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
     }
 
-    html, body {
-      height: 100%;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      background: radial-gradient(1200px 800px at 50% 50%, #121212, var(--bg));
-      color: var(--fg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      display: grid;
-      place-items: center;
-      line-height: 1.1;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-gradient);
+      color: #4a1c2b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    .wrap {
-      width: min(1200px, 94vw);
+    header {
+      background-color: #f48fb1;
+      width: 100%;
+      padding: 1.5rem 0;
       text-align: center;
-      padding: 6vh 2rem;
-      user-select: none;
+      font-family: 'Parisienne', cursive;
+      font-size: 2.8rem;
+      color: #5d2246;
+      box-shadow: 0 3px 8px rgba(92, 34, 70, 0.4);
+      z-index: 1;
     }
 
-    .headline {
-      font-weight: 900;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      /* Boyutu ekrana göre otomatik ayarlar */
-      font-size: clamp(3rem, 12vw, 14rem);
-      /* Hafif parıltı efekti */
-      text-shadow: 0 0 12px rgba(255, 59, 59, 0.25), 0 0 32px rgba(255, 59, 59, 0.1);
-      margin: 0 0 1rem;
-      animation: pulse 2.6s ease-in-out infinite;
+    main {
+      width: 100%;
+      max-width: 960px;
+      padding: 2rem 1rem 3rem 1rem;
+      text-align: center;
+      z-index: 1;
     }
 
-    .sub {
-      opacity: 0.78;
-      font-size: clamp(0.95rem, 2.4vw, 1.25rem);
-      margin: 0.25rem 0 2rem;
+    .intro {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #6e2e4c;
+      font-style: italic;
     }
 
-    .badge {
+    .countdown {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin: 1rem 0 2rem;
+      font-weight: 700;
+      text-shadow: 0 2px 4px #7b2a4e;
+    }
+
+    .birthdays {
+      font-size: 1rem;
+      color: #7b2a4e;
+      margin-top: 10px;
+      font-style: italic;
+      line-height: 1.5;
+      position: relative;
+      padding-bottom: 40px;
+    }
+
+    .birthday {
+      margin-bottom: 8px;
+    }
+
+    #birthday-diff {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 30px;
+      font-style: italic;
+      font-weight: 600;
+      color: #ad1457;
+      background: #f8bbd0;
+      border-radius: 15px;
+      box-shadow: 0 3px 6px rgba(163, 30, 84, 0.3);
+      line-height: 30px;
+      z-index: 10;
+    }
+
+    #birthday-diff::before,
+    #birthday-diff::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 120px;
+      height: 2px;
+      background: #ad1457;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+
+    #birthday-diff::before {
+      left: -130px;
+    }
+
+    #birthday-diff::after {
+      right: -130px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: #a81e54;
+      font-weight: 600;
+      border-bottom: 2px solid #a81e54;
       display: inline-block;
-      padding: 0.5rem 0.9rem;
-      border: 1px dashed rgba(255,255,255,0.25);
-      border-radius: 999px;
+      padding-bottom: 6px;
+    }
+
+    .plan {
+      background-color: #f8bbd0;
+      padding: 1.3rem 1rem;
+      border-radius: 10px;
+      color: #6d2a46;
+      margin-bottom: 3rem;
+      font-style: italic;
+      box-shadow: 0 3px 6px rgba(163, 30, 84, 0.3);
+    }
+
+    .games-list {
+      margin-top: 1rem;
+      text-align: left;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #7b2a4e;
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    .game-item {
+      background-color: #f8bbd0;
+      padding: 10px 15px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(163, 30, 84, 0.3);
+      transition: background-color 0.3s ease;
+      cursor: default;
+    }
+
+    .game-item:hover {
+      background-color: #ad1457;
+      color: white;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 1.5rem;
+    }
+
+    .gallery-item {
+      flex: 1 1 280px;
+      max-width: 280px;
+      border-radius: 15px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 10px rgba(173, 20, 81, 0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      z-index: 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .caption {
+      padding: 0.5rem 1rem 1rem;
+      color: #5a1c3a;
+      font-style: italic;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    footer {
       font-size: 0.9rem;
-      letter-spacing: 0.04em;
-      opacity: 0.8;
+      color: #a36b7b;
+      padding: 1rem 0 2rem;
+      text-align: center;
     }
 
-    /* İnce ızgara/gürültü dokusu (estetik) */
-    .grain {
+    #hearts-bg {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       pointer-events: none;
-      background:
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 2px),
-        radial-gradient(1000px 600px at 50% -20%, rgba(255,59,59,0.06), transparent 70%);
-      mix-blend-mode: screen;
+      z-index: -1;
+      overflow: hidden;
     }
 
-    @keyframes pulse {
-      0%, 100% { text-shadow: 0 0 10px rgba(255, 59, 59, 0.25), 0 0 28px rgba(255, 59, 59, 0.08); }
-      50% { text-shadow: 0 0 18px rgba(255, 59, 59, 0.4), 0 0 44px rgba(255, 59, 59, 0.18); }
+    .heart {
+      position: absolute;
+      font-size: 18px;
+      animation-name: floatUp;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      cursor: default;
     }
 
-    /* Karanlık/aydınlık mod uyumu (cihaz tercihi) */
-    @media (prefers-color-scheme: light) {
-      :root { --bg: #f7f7f7; --fg: #0b0b0b; }
-      body { background: radial-gradient(1200px 800px at 50% 50%, #ffffff, var(--bg)); }
-      .badge { border-color: rgba(0,0,0,0.2); }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
     }
 
-    /* Küçük ekranlar için nefes payı */
-    @media (max-width: 380px) {
-      .wrap { padding: 8vh 1rem; }
-      .sub { font-size: 0.95rem; }
+    @media (max-width: 768px) {
+      .gallery {
+        gap: 12px;
+      }
+
+      .gallery-item {
+        max-width: 90%;
+      }
+
+      .countdown {
+        font-size: 2.2rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .plan {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Şifre ekranı stilleri */
+    #password-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: #f8bbd0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #password-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    #password-form input {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    #password-form button {
+      margin-top: 1rem;
+      background: #ad1457;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="wrap" role="main" aria-label="Site Kapatıldı">
-    <h1 class="headline" aria-live="polite">KAPANDI</h1>
-    <p class="sub">Bu site kullanıma kapatılmıştır.</p>
-    <div class="badge">İletişim: <a href="mailto:ornek@mail.com" style="color:inherit; text-underline-offset: 3px">ig:mertcansmseek</a></div>
-  </div>
 
-  <div class="grain" aria-hidden="true"></div>
+<!-- Şifre Kutusu -->
+<div id="password-overlay">
+  <form id="password-form" onsubmit="checkPassword(event)">
+    <h2>Hoş geldin 💗</h2>
+    <p>Lütfen şifreyi gir:</p>
+    <input type="password" id="site-password" placeholder="Şifre" required />
+    <button type="submit">Giriş Yap</button>
+  </form>
+</div>
 
-  <!-- İsteğe göre otomatik yönlendirme (aktif etmek için yorumdan çıkar)
-  <script>
-    // Belirli bir süre sonra başka adrese yönlendirme (ör. 5 sn)
-    // setTimeout(() => { window.location.href = "https://ornek.com"; }, 5000);
-  </script>
-  -->
+<header>Mertcan & Yaren - Bizim Hikayemiz</header>
+
+<main>
+  <!-- Buraya kadar olan içerik aynı kalıyor -->
+  <!-- İçeriklerini olduğu gibi yerleştirmeye devam edebilirsin -->
+</main>
+
+<footer>&copy; 2025 Mertcan & Yaren</footer>
+
+<div id="hearts-bg"></div>
+
+<script>
+  const correctPassword = "askim"; // Şifreyi buradan değiştirebilirsin
+
+  function checkPassword(event) {
+    event.preventDefault();
+    const input = document.getElementById('site-password').value;
+    if (input === correctPassword) {
+      document.getElementById('password-overlay').style.display = 'none';
+    } else {
+      alert("Yanlış şifre! 🙈");
+    }
+  }
+
+  const heartsBg = document.getElementById('hearts-bg');
+  const heartCount = 60;
+  const heartColors = ['#e91e63', '#f06292', '#f50057', '#c2185b', '#ec407a', '#ff80ab', '#d81b60', '#ff4081', '#f8bbd0', '#ad1457'];
+
+  function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  for (let i = 0; i < heartCount; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '❤';
+    heart.style.left = randomInt(0, 100) + 'vw';
+    heart.style.top = randomInt(0, 100) + 'vh';
+    heart.style.fontSize = randomInt(15, 25) + 'px';
+    heart.style.animationDuration = randomInt(10, 20) + 's';
+    heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+    heartsBg.appendChild(heart);
+  }
+
+  function updateCountdown() {
+    const startDate = new Date("2025-06-14T00:00:00");
+    const now = new Date();
+    let diff = now - startDate;
+
+    if (diff < 0) diff = 0;
+
+    const seconds = Math.floor((diff / 1000) % 60);
+    const minutes = Math.floor((diff / 1000 / 60) % 60);
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const formatted = `${days} gün ${hours.toString().padStart(2, '0')} saat ${minutes.toString().padStart(2, '0')} dakika ${seconds.toString().padStart(2, '0')} saniye`;
+    const counter = document.getElementById('daysCount');
+    if (counter) counter.textContent = formatted;
+  }
+
+  function calculateMonthDayDiff(date1, date2) {
+    let d1 = new Date(date1);
+    let d2 = new Date(date2);
+
+    if (d1 > d2) [d1, d2] = [d2, d1];
+
+    let years = d2.getFullYear() - d1.getFullYear();
+    let months = d2.getMonth() - d1.getMonth();
+    let days = d2.getDate() - d1.getDate();
+
+    if (days < 0) {
+      months--;
+      const prevMonth = new Date(d2.getFullYear(), d2.getMonth(), 0);
+      days += prevMonth.getDate();
+    }
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    months += years * 12;
+
+    return { months, days };
+  }
+
+  function updateBirthdayDiffBox() {
+    const yarenBD = new Date('2009-12-16');
+    const mertcanBD = new Date('2009-04-21');
+    const diff = calculateMonthDayDiff(yarenBD, mertcanBD);
+    const diffText = `${diff.months} ay ${diff.days} günle koymuşum`;
+
+    const diffBox = document.getElementById('birthday-diff');
+    if (diffBox) {
+      diffBox.textContent = diffText;
+    }
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+  updateBirthdayDiffBox();
+</script>
+
 </body>
 </html>

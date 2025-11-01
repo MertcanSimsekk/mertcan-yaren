@@ -96,11 +96,11 @@
       z-index: 10;
     }
 
-    #birthday-diff::before,
-    #birthday-diff::after {
+    #birthday-diff::before {
       content: "";
       position: absolute;
       top: 50%;
+      left: -130px;
       width: 120px;
       height: 2px;
       background: #ad1457;
@@ -108,11 +108,16 @@
       z-index: -1;
     }
 
-    #birthday-diff::before {
-      left: -130px;
-    }
     #birthday-diff::after {
+      content: "";
+      position: absolute;
+      top: 50%;
       right: -130px;
+      width: 120px;
+      height: 2px;
+      background: #ad1457;
+      transform: translateY(-50%);
+      z-index: -1;
     }
 
     .section-title {
@@ -274,10 +279,6 @@
   <div>
     <div class="section-title">Birlikte Geçen Günlerimiz</div>
     <div class="countdown" id="daysCount">...</div>
-
-    <div class="section-title">Kasım’dan Beri Geçen Günler</div>
-    <div class="countdown" id="sinceCount">...</div>
-
     <div class="birthdays">
       <div class="birthday" id="yarenBirthday">Yaren’in Doğum Günü: 16 Aralık 2009</div>
       <div class="birthday" id="mertcanBirthday">Mertcan’ın Doğum Günü: 21 Nisan 2009</div>
@@ -295,32 +296,81 @@
   <div>
     <div class="section-title">Birlikte Oynadığımız Oyunlar</div>
     <div class="games-list">
-      <div class="game-item"><strong>Minecraft</strong> — beraber birbirimize biseyler yapiyoduuk</div>
-      <div class="game-item"><strong>Brawl Stars</strong> — best duo olduukk</div>
-      <div class="game-item"><strong>Okey 101</strong> — beraber oynadigimiz ilk oyunn girmek icin cok cabalamistik</div>
-      <div class="game-item"><strong>Hayday</strong> — ilk kedini alip ismini cok guzel yapmistiinnn</div>
-      <div class="game-item"><strong>Gartic Phone</strong> — cok zordu sıkılıp cıkmıstık...</div>
-      <div class="game-item"><strong>Life360</strong> — çok önemli!!</div>
+      <div class="game-item">
+        <strong>Minecraft</strong> — beraber birbirimize biseyler yapiyoduuk
+      </div>
+      <div class="game-item">
+        <strong>Brawl Stars</strong> — best duo olduukk
+      </div>
+      <div class="game-item">
+        <strong>Okey 101</strong> — beraber oynadigimiz ilk oyunn girmek icin cok cabalamistik
+      </div>
+      <div class="game-item">
+        <strong>Hayday</strong> — ilk kedini alip ismini cok guzel yapmistiinnn
+      </div>
+      <div class="game-item">
+        <strong>Gartic Phone</strong> — cok zordu sıkılıp cıkmıstık...
+      </div>
+      <div class="game-item">
+        <strong>Life360</strong> — çok önemli!!
+      </div>
     </div>
   </div>
 
   <div>
     <div class="section-title">Fotoğraf Albümü</div>
     <div class="gallery">
-      <div class="gallery-item"><img src="https://i.imgur.com/d2FdrQd.jpeg"><div class="caption">oha askimaskim</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/JEwfbuo.jpeg"><div class="caption">ilk mc oynadigimiz gunnn</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/f3ue9LG.jpeg"><div class="caption">mukemmel fotografin &lt;3</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/apf6Lwi.jpeg"><div class="caption">ne guzel yazmisimmmm</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/FaerLQI.jpeg"><div class="caption">hayatimda aldigim en guzel kalppp</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/8h1qUM0.jpeg"><div class="caption">gercek anlamda ilk tanıstıgımız gun</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/RpbayHX.jpeg"><div class="caption">brawl stars datee</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/oHWxLpV.jpeg"><div class="caption">haydayde ilk kedine koydugun isimm</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/d38V4bR.jpeg"><div class="caption">tiktokta ismimizi yazdirtmistimm</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/qNydQTw.jpeg"><div class="caption">tablette bile ismimiz vardiii</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/Vy3sNYH.jpeg"><div class="caption">oha evleniyomusuzz</div></div>
-      <div class="gallery-item"><img src="https://i.imgur.com/J9NJkdR.jpeg"><div class="caption">gozlerinin zaafım olduğunu söylemişmiydim?</div></div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/d2FdrQd.jpeg" alt="Bizim Anımız" />
+        <div class="caption">oha askimaskim</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/JEwfbuo.jpeg" alt="Beraber Geçirdiğimiz Zaman" />
+        <div class="caption">ilk mc oynadigimiz gunnn</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/f3ue9LG.jpeg" alt="Unutulmaz Anımız" />
+        <div class="caption">mukemmel fotografin &lt;3</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/apf6Lwi.jpeg" alt="Mutlu Anlarımız" />
+        <div class="caption">ne guzel yazmisimmmm</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/FaerLQI.jpeg" alt="Göz Göze" />
+        <div class="caption">hayatimda aldigim en guzel kalppp</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/8h1qUM0.jpeg" alt="İlk Tanıştığımız Gün" />
+        <div class="caption">gercek anlamda ilk tanıstıgımız gun</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/RpbayHX.jpeg" alt="Brawl Stars Datee" />
+        <div class="caption">brawl stars datee</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/oHWxLpV.jpeg" alt="Hayday" />
+        <div class="caption">haydayde ilk kedine koydugun isimm</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/d38V4bR.jpeg" alt="TikTok" />
+        <div class="caption">tiktokta ismimizi yazdirtmistimm</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/qNydQTw.jpeg" alt="Tablet" />
+        <div class="caption">tablette bile ismimiz vardiii</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/Vy3sNYH.jpeg" alt="Evleniyoz" />
+        <div class="caption">oha evleniyomusuzz</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.imgur.com/J9NJkdR.jpeg" alt="Özel" />
+        <div class="caption">gozlerinin zaafım olduğunu söylemişmiydim?</div>
+      </div>
     </div>
   </div>
+
 </main>
 
 <footer>
@@ -332,77 +382,86 @@
 <script>
   const heartsBg = document.getElementById('hearts-bg');
   const heartCount = 60;
-  const heartColors = ['#e91e63','#f06292','#f50057','#c2185b','#ec407a','#ff80ab','#d81b60','#ff4081','#f8bbd0','#ad1457'];
 
-  function randomInt(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
-  for(let i=0;i<heartCount;i++){
-    const heart=document.createElement('div');
+  const heartColors = [
+    '#e91e63', '#f06292', '#f50057', '#c2185b', '#ec407a',
+    '#ff80ab', '#d81b60', '#ff4081', '#f8bbd0', '#ad1457'
+  ];
+
+  function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  for (let i = 0; i < heartCount; i++) {
+    const heart = document.createElement('div');
     heart.classList.add('heart');
-    heart.textContent='❤';
-    heart.style.left=randomInt(0,100)+'vw';
-    heart.style.top=randomInt(0,100)+'vh';
-    heart.style.fontSize=randomInt(15,25)+'px';
-    heart.style.animationDuration=randomInt(10,20)+'s';
-    heart.style.color=heartColors[Math.floor(Math.random()*heartColors.length)];
+    heart.textContent = '❤';
+    heart.style.left = randomInt(0, 100) + 'vw';
+    heart.style.top = randomInt(0, 100) + 'vh';
+    heart.style.fontSize = randomInt(15, 25) + 'px';
+    heart.style.animationDuration = randomInt(10, 20) + 's';
+    heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
     heartsBg.appendChild(heart);
   }
 
-  // Sayaç 1: 14 Ağustos 2025'e geri sayım
-  function updateCountdownToDate(){
-    const targetDate=new Date("2025-08-14T00:00:00");
-    const now=new Date();
-    let diff=targetDate-now;
-    if(diff<0) diff=0;
-    const seconds=Math.floor((diff/1000)%60);
-    const minutes=Math.floor((diff/1000/60)%60);
-    const hours=Math.floor((diff/(1000*60*60))%24);
-    const days=Math.floor(diff/(1000*60*60*24));
-    const formatted=`${days} gün ${hours.toString().padStart(2,'0')} saat ${minutes.toString().padStart(2,'0')} dakika ${seconds.toString().padStart(2,'0')} saniye kaldı 💖`;
-    document.getElementById('daysCount').textContent=formatted;
+  heartsBg.querySelectorAll('.heart').forEach(heart => {
+    void heart.offsetWidth;
+  });
+
+  function updateCountdown() {
+    const startDate = new Date("2025-06-14T00:00:00");
+    const now = new Date();
+    let diff = now - startDate;
+
+    if (diff < 0) diff = 0;
+
+    const seconds = Math.floor((diff / 1000) % 60);
+    const minutes = Math.floor((diff / 1000 / 60) % 60);
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const formatted = `${days} gün ${hours.toString().padStart(2,'0')} saat ${minutes.toString().padStart(2,'0')} dakika ${seconds.toString().padStart(2,'0')} saniye`;
+
+    document.getElementById('daysCount').textContent = formatted;
   }
 
-  // Sayaç 2: 1 Kasım 2025'ten itibaren geçen süre
-  function updateFromDate(){
-    const startDate=new Date("2025-11-01T00:00:00");
-    const now=new Date();
-    let diff=now-startDate;
-    if(diff<0){
-      document.getElementById('sinceCount').textContent="Henüz başlamadı 💫";
-      return;
+  function calculateMonthDayDiff(date1, date2) {
+    let d1 = new Date(date1);
+    let d2 = new Date(date2);
+
+    if (d1 > d2) [d1, d2] = [d2, d1];
+
+    let years = d2.getFullYear() - d1.getFullYear();
+    let months = d2.getMonth() - d1.getMonth();
+    let days = d2.getDate() - d1.getDate();
+
+    if (days < 0) {
+      months--;
+      const prevMonth = new Date(d2.getFullYear(), d2.getMonth(), 0);
+      days += prevMonth.getDate();
     }
-    const seconds=Math.floor((diff/1000)%60);
-    const minutes=Math.floor((diff/1000/60)%60);
-    const hours=Math.floor((diff/(1000*60*60))%24);
-    const days=Math.floor(diff/(1000*60*60*24));
-    const formatted=`${days} gün ${hours.toString().padStart(2,'0')} saat ${minutes.toString().padStart(2,'0')} dakika ${seconds.toString().padStart(2,'0')} saniye geçti 💞`;
-    document.getElementById('sinceCount').textContent=formatted;
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    months += years * 12;
+
+    return { months, days };
   }
 
-  // Doğum günü farkı
-  function calculateMonthDayDiff(date1,date2){
-    let d1=new Date(date1);let d2=new Date(date2);
-    if(d1>d2)[d1,d2]=[d2,d1];
-    let years=d2.getFullYear()-d1.getFullYear();
-    let months=d2.getMonth()-d1.getMonth();
-    let days=d2.getDate()-d1.getDate();
-    if(days<0){months--;const prevMonth=new Date(d2.getFullYear(),d2.getMonth(),0);days+=prevMonth.getDate();}
-    if(months<0){years--;months+=12;}
-    months+=years*12;
-    return {months,days};
+  function updateBirthdayDiffBox() {
+    const yarenBD = new Date('2009-12-16');
+    const mertcanBD = new Date('2009-04-21');
+
+    const diff = calculateMonthDayDiff(yarenBD, mertcanBD);
+    const diffText = `${diff.months} ay ${diff.days} günle koymuşum`;
+    const diffBox = document.getElementById('birthday-diff');
+    if (diffBox) diffBox.textContent = diffText;
   }
 
-  function updateBirthdayDiffBox(){
-    const yarenBD=new Date('2009-12-16');
-    const mertcanBD=new Date('2009-04-21');
-    const diff=calculateMonthDayDiff(yarenBD,mertcanBD);
-    const diffText=`${diff.months} ay ${diff.days} günle koymuşum`;
-    document.getElementById('birthday-diff').textContent=diffText;
-  }
-
-  // Çalıştır
-  updateCountdownToDate();
-  updateFromDate();
-  setInterval(()=>{updateCountdownToDate();updateFromDate();},1000);
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
   updateBirthdayDiffBox();
 </script>
 

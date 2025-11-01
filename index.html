@@ -72,14 +72,13 @@
       font-style: italic;
       line-height: 1.5;
       position: relative;
-      padding-bottom: 40px; /* Aşağıda açıklama kutusu için boşluk */
+      padding-bottom: 40px;
     }
 
     .birthday {
       margin-bottom: 8px;
     }
 
-    /* Ortada yatay çizgi ve fark metni için kutu */
     #birthday-diff {
       position: absolute;
       bottom: 0;
@@ -231,7 +230,6 @@
       animation-iteration-count: infinite;
       animation-fill-mode: forwards;
       cursor: default;
-      /* color ayarlanacak JS ile */
     }
 
     @keyframes floatUp {
@@ -248,24 +246,19 @@
       }
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .gallery {
         gap: 12px;
       }
-
       .gallery-item {
         max-width: 90%;
       }
-
       .countdown {
         font-size: 2.2rem;
       }
-
       .section-title {
         font-size: 1.5rem;
       }
-
       .plan {
         font-size: 0.95rem;
       }
@@ -318,6 +311,9 @@
       <div class="game-item">
         <strong>Gartic Phone</strong> — cok zordu sıkılıp cıkmıstık...
       </div>
+      <div class="game-item">
+        <strong>Life360</strong> — çok önemli!!
+      </div>
     </div>
   </div>
 
@@ -345,7 +341,7 @@
         <div class="caption">hayatimda aldigim en guzel kalppp</div>
       </div>
       <div class="gallery-item">
-        <img src="https://i.imgur.com/8h1qUM0.jpeg" alt="Gerçek Anlamda İlk Tanıştığımız Gün" />
+        <img src="https://i.imgur.com/8h1qUM0.jpeg" alt="İlk Tanıştığımız Gün" />
         <div class="caption">gercek anlamda ilk tanıstıgımız gun</div>
       </div>
       <div class="gallery-item">
@@ -353,29 +349,28 @@
         <div class="caption">brawl stars datee</div>
       </div>
       <div class="gallery-item">
-        <img src="https://i.imgur.com/oHWxLpV.jpeg" alt="Haydayde İlk Kedine Koydugun Isimm" />
+        <img src="https://i.imgur.com/oHWxLpV.jpeg" alt="Hayday" />
         <div class="caption">haydayde ilk kedine koydugun isimm</div>
       </div>
       <div class="gallery-item">
-        <img src="https://i.imgur.com/d38V4bR.jpeg" alt="Arkadasıma Tiktokta İsmimizi Yazdirtmistimm" />
-        <div class="caption">arkadasıma tiktokta bizim ismimizi yazdirtmistimm</div>
+        <img src="https://i.imgur.com/d38V4bR.jpeg" alt="TikTok" />
+        <div class="caption">tiktokta ismimizi yazdirtmistimm</div>
       </div>
       <div class="gallery-item">
-        <img src="https://i.imgur.com/qNydQTw.jpeg" alt="Tablette Bile İsmimiz Vardiii" />
+        <img src="https://i.imgur.com/qNydQTw.jpeg" alt="Tablet" />
         <div class="caption">tablette bile ismimiz vardiii</div>
       </div>
       <div class="gallery-item">
-        <img src="https://i.imgur.com/Vy3sNYH.jpeg" alt="Oha Evleniyomusuzz" />
+        <img src="https://i.imgur.com/Vy3sNYH.jpeg" alt="Evleniyoz" />
         <div class="caption">oha evleniyomusuzz</div>
       </div>
-
-      <!-- Yeni eklenen fotoğraf -->
       <div class="gallery-item">
-        <img src="https://i.imgur.com/J9NJkdR.jpeg" alt="Özel Anımız" />
-        <div class="caption">En güzel anımız, hep kalbimizde.</div>
+        <img src="https://i.imgur.com/J9NJkdR.jpeg" alt="Özel" />
+        <div class="caption">gozlerinin zaafım olduğunu söylemişmiydim?</div>
       </div>
     </div>
   </div>
+
 </main>
 
 <footer>
@@ -409,12 +404,10 @@
     heartsBg.appendChild(heart);
   }
 
-  // Kalp animasyonu başlatmak için reflow tetikleme
   heartsBg.querySelectorAll('.heart').forEach(heart => {
     void heart.offsetWidth;
   });
 
-  // GERÇEK ZAMANLI GEÇEN SÜRE HESAPLAMA
   function updateCountdown() {
     const startDate = new Date("2025-06-14T00:00:00");
     const now = new Date();
@@ -427,12 +420,11 @@
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-    const formatted = `${days} gün ${hours.toString().padStart(2, '0')} saat ${minutes.toString().padStart(2, '0')} dakika ${seconds.toString().padStart(2, '0')} saniye`;
+    const formatted = `${days} gün ${hours.toString().padStart(2,'0')} saat ${minutes.toString().padStart(2,'0')} dakika ${seconds.toString().padStart(2,'0')} saniye`;
 
     document.getElementById('daysCount').textContent = formatted;
   }
 
-  // Ay ve gün farkını hesaplayan fonksiyon
   function calculateMonthDayDiff(date1, date2) {
     let d1 = new Date(date1);
     let d2 = new Date(date2);
@@ -463,18 +455,13 @@
     const mertcanBD = new Date('2009-04-21');
 
     const diff = calculateMonthDayDiff(yarenBD, mertcanBD);
-
     const diffText = `${diff.months} ay ${diff.days} günle koymuşum`;
-
     const diffBox = document.getElementById('birthday-diff');
-    if (diffBox) {
-      diffBox.textContent = diffText;
-    }
+    if (diffBox) diffBox.textContent = diffText;
   }
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
-
   updateBirthdayDiffBox();
 </script>
 
